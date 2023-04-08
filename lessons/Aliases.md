@@ -1,5 +1,7 @@
 # Aliases
-
+```js
+// Aliases notes
+```
 I know we're supposed to use those data attributes instead of class names. I know. But, they're a pain to type.
 
 Also, you can see a world where some of the gymnastics that we were doing with closures and whatnot could be easier if we could hold onto a value for a hot minute.

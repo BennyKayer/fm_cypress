@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+// Completed aliases
+
 describe('Aliases', () => {
   beforeEach(() => {
     cy.visit('/jetsetter');

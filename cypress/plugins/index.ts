@@ -16,6 +16,7 @@
 import reset from '../../prisma/reset.cjs';
 import seed from '../../prisma/seed.cjs';
 
+// Task get registered
 const plugins: Cypress.PluginConfig = (on) => {
   on('task', {
     reset() {

@@ -1,4 +1,4 @@
-# Tasks
+# Tasks - done
 
 If you have some issues with your plugin file, make sure you read [How to Fix Cypress's Issue with ESM](How%20to%20Fix%20Cypress's%20Issue%20with%20ESM.md).
 

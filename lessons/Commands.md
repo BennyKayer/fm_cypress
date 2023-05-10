@@ -1,4 +1,4 @@
-# Commands
+# Commands - done
 
 Commands allow you to batch common operations in to easy-to-use workflows.
 

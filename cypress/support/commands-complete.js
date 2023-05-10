@@ -7,7 +7,7 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
+// Done
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
@@ -34,6 +34,10 @@ Cypress.Commands.add('waitForApp', () => {
   );
 });
 
+// You could've also use .overwrite on get
+// Cypress.Commands.overwrite('get', (attribute) => {
+//   return cy.get(`[data-test=${attribute}`)
+// })
 Cypress.Commands.add('getData', (attribute) => {
   return cy.get(`[data-test="${attribute}"]`);
 });

@@ -1,6 +1,8 @@
+// Prisma looks like cool ORM for node
 const Prisma = require('@prisma/client');
 const prisma = new Prisma.PrismaClient();
 
+// Weird .cjs required by task
 async function main() {
   const deletePosts = prisma.post.deleteMany({});
   const deleteUsers = prisma.user.deleteMany({});

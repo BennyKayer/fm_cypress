@@ -1,6 +1,7 @@
 const Prisma = require('@prisma/client');
 const prisma = new Prisma.PrismaClient();
 
+// Both exported in modules with main function, refer to Tasks.md for TS understanding
 async function main() {
   const deletePosts = prisma.post.deleteMany({});
   const deleteUsers = prisma.user.deleteMany({});

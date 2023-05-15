@@ -13,16 +13,31 @@ describe('Pokémon Search', () => {
     cy.get('[data-test="search"]').as('search');
     cy.get('[data-test="search-label"]').as('label');
 
+    // INTERCEPT
     cy.intercept('/pokemon-search/api?*').as('api');
   });
 
-  it('should call the API when the user types', () => {});
+  it('should call the API when the user types', () => {
+    cy.get('@search').type('ivy');
+    cy.wait('@api');
+  });
 
-  it('should update the query parameter', () => {});
+  it('should update the query parameter', () => {
+    cy.get('@search').type('bulba');
+    cy.wait('@api');
 
-  it('should call the API with correct query parameter', () => {});
+    cy.location('search').should('contain', 'name=bulba');
+  });
 
-  it('should pre-populate the search field with the query parameter', () => {});
+  it('should call the API with correct query parameter', () => {
+    cy.get('@search').type('char');
+    // cy.wait('@api').then((interception) => console.log(interception));
+    cy.wait('@api').its('request.url').should('contain', 'name=char');
+  });
+
+  it.only('should pre-populate the search field with the query parameter', () => {
+    cy.visit({ url: '/pokemon-search', qs: { name: 'char' } });
+  });
 
   it('should render the results to the page', () => {});
 

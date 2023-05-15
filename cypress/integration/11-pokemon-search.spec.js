@@ -39,7 +39,14 @@ describe('Pokémon Search', () => {
     cy.visit({ url: '/pokemon-search', qs: { name: 'char' } });
   });
 
-  it('should render the results to the page', () => {});
+  it('should render the results to the page', () => {
+    // Constant response interception => stubbing
+    cy.intercept('/pokemon-search/api?*', { pokemon }).as('stubbed');
+    cy.get('@search').type('char');
+    // Works because there is a fixtures folder with bulbasaur.json
+    cy.intercept('/pokemon-search/api/1', { fixture: 'bulbasaur' }).as('bulba-fixture');
+    cy.get('[data-test="results" a').first().click();
+  });
 
   it('should link to the correct pokémon', () => {});
 

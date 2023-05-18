@@ -1,5 +1,7 @@
 # Continuous Integration with GitHub Actions
 
+## integration commit
+
 ## Running Cypress in Headless Mode
 
 What if you want to run Cypress in CI/CD?

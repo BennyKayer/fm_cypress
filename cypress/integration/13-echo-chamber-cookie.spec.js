@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-
+// Testing Cookies & Sessions
 import '../support/commands-complete';
 
 const user = {
@@ -21,20 +21,25 @@ describe('Signing in with a seeded database', () => {
     cy.location('pathname').should('contain', '/echo-chamber/posts');
   });
 
-  it('should set a cookie', () => {});
+  it('should set a cookie', () => {
+    cy.getCookie('jwt').then((cookie) => {
+      const value = decodeToken(cookie.value);
+      expect(value.email).to.equal(user.email);
+    });
+  });
 });
 
 describe('Setting the cookie', () => {
   beforeEach(() => {
     cy.task('seed');
     cy.visit('/echo-chamber/sign-in');
+    cy.setCookie('jwt', encodeToken({ id: 999, email: user.email }));
+    cy.visit('/echo-chamber/sign-in');
   });
 
-  it.skip('should be able to log in', () => {
-    cy.location('pathname').should('contain', '/echo-chamber/posts');
+  it('show that user on the page', () => {
+    cy.contains(user.email);
   });
-
-  it('show that user on the page', () => {});
 });
 
 describe('Setting the cookie with real data', () => {
@@ -42,10 +47,4 @@ describe('Setting the cookie with real data', () => {
     cy.task('seed');
     cy.visit('/echo-chamber/sign-in');
   });
-
-  it.skip('should be able to log in', () => {
-    cy.location('pathname').should('contain', '/echo-chamber/posts');
-  });
-
-  it('show that user on the page', () => {});
 });

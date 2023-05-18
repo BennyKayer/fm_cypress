@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-
+//  Testing Cookies & Sessions
 import '../support/commands-complete';
 
 const user = {

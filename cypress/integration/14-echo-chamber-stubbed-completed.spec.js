@@ -49,11 +49,13 @@ describe('Signing in with a seeded database', () => {
 
       cy.getData('post-create-content-input').as('newPostInput');
       cy.getData('post-create-submit').as('newPostSubmit');
+      // ...this stuff is also 10
       cy.getData('post-preview-list').find('article').as('previews');
 
       cy.fixture('posts').then(({ posts }) => cy.wrap(posts[0]).as('firstPost'));
     });
 
+    // I know that I have 10 items in fixture, can check that ...
     it('should render the posts from the API', () => {
       cy.fixture('posts').then(({ posts }) => {
         cy.get('@previews').should('have.length', posts.length);

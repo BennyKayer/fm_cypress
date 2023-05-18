@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
-
+// Mocking in depth
+// cypress has generous free tier for open source
+// there's this thing called percy.io that takes care of manual QA
 import '../support/commands-complete';
 
 export const decodeToken = (token) => JSON.parse(Buffer.from(token, 'base64').toString('utf-8'));
